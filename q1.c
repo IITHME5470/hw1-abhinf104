@@ -59,8 +59,8 @@ void print_to_file(int n, double **A, int format_flag)
 
 int main()
 {
-    int n; // 4000
-    FILE *file = fopen("input.in", "r");
+    int n; // after reading file 4000
+    FILE *file = fopen("inputQ1.in", "r");
     if (file == NULL)
     {
         fprintf(stderr, "Error opening input file\n");

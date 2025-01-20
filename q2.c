@@ -105,7 +105,7 @@ void appendEigenvalue(const char *filename, double eigenValue)
         fprintf(stderr, "Error opening vector file %s for appending\n", filename);
         exit(EXIT_FAILURE);
     }
-    fprintf(file, "\n%e", eigenValue);
+    fprintf(file, "%e", eigenValue);
     fclose(file);
 }
 void freeMemory(double **array, int n)
@@ -121,7 +121,7 @@ int main()
 {
     int n;
     double tolerance = 1e-6;
-    FILE *file = fopen("input.in", "r");
+    FILE *file = fopen("inputQ2.in", "r");
     if (file == NULL)
     {
         fprintf(stderr, "Error opening input file\n");
@@ -157,12 +157,12 @@ int main()
         if (eigenValue != DBL_MAX)
         {
 
-            printf("%s : Yes : %e \n", vecInput, eigenValue);
+            printf("vec_%06d_%06d.in : Yes : %e \n", n, j + 1, eigenValue);
             appendEigenvalue(vecInput, eigenValue);
         }
         else
         {
-            printf("%s : Not an eigenvector\n", vecInput);
+            printf("vec_%06d_%06d.in : Not an eigenvector\n", n, j + 1);
         }
     }
     free(vec);
